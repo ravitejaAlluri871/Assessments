@@ -18,4 +18,4 @@ Implementation Steps
     * Deploy the solution and set up monitoring dashboards to track performance and alert thresholds.
 
 Conclusion:-
-This scalable architecture leverages Azure services effectively to transition the Marketing System to a cloud-based solution, ensuring efficient daily data ingestion, processing, and accessibility for dashboarding. Regular collaboration with the MS team will be essential to refine the requirements and optimize the solution further.
+This scalable architecture uses Azure services effectively to transition the Marketing System to a cloud-based solution, ensuring efficient daily data ingestion, processing, and accessibility for dashboarding. Regular collaboration with the MS team will be essential to refine the requirements and optimize the solution further.
