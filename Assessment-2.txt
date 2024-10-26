@@ -1,0 +1,13 @@
+
+import pyspark
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, when, sum
+spark = SparkSession.builder.appName("FinancialTransactionAnalysis").getOrCreate()
+df = spark.read.csv("financial_transactions.csv", header=True, inferSchema=True)
+df = df.sort(col("AccountNumber"), col("TransactionDate"))
+from pyspark.sql.window import Window
+windowSpec = Window.partitionBy("AccountNumber").orderBy("TransactionDate")
+
+df = df.withColumn("RunningBalance", sum(when(col("TransactionType") == "Credit", col("Amount")).otherwise(-col("Amount"))).over(windowSpec)))
+
+df.write.csv("output.csv", header=True)
